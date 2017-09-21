@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Stack } from './stack';
-import { Queue } from './queue';
+import { ListQueue } from './queue';
+import { ReverseString } from './reverse-string'
 
 @Component({
   selector: 'app-data-structure',
@@ -10,7 +11,9 @@ import { Queue } from './queue';
 export class DataStructureComponent implements OnInit {
 
   stack = new Stack;
-  Queue = new Queue;
+  Queue = new ListQueue();
+  ReverseString = new ReverseString;
+
 
   constructor() { 
 
@@ -24,13 +27,20 @@ export class DataStructureComponent implements OnInit {
     this.stack.pop();
     console.log(this.stack.printStack());
 
+    //reverse string
+    this.ReverseString.reverse('programming');
+    console.log(this.ReverseString.printStack());
+
     //queue output
     console.log("Queue Output");
     this.Queue.enqueue(100);
     this.Queue.enqueue(200);
-    console.log(this.Queue.printQueue());
-    
-    
+    this.Queue.enqueue(300);
+    this.Queue.enqueue(400);
+    this.Queue.enqueue(500);
+    this.Queue.enqueue(600);
+    this.Queue.dequeue();
+    console.log(this.Queue); 
   }
 
   ngOnInit() {
