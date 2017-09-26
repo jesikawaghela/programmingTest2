@@ -1,6 +1,5 @@
 export class ReverseString {
-    private myArray = [];
-    private reverseStack = [];
+    private myArray = ["p","r","o"];
     len: any;
     
         public push(data) {
@@ -19,17 +18,18 @@ export class ReverseString {
             return this.myArray[this.myArray.length - 1];
         }
 
-        public reverse(data) {
-            // this.len = data.length;
-            for(let i = 0; i < this.reverseStack.length; i++)
-                this.push(data)
-            for(let i = 0; i<this.reverseStack.length; i++)
-                this.pop();
-        }
-        public printStack() {
-            var str = "";
-            for (var i = 0; i < this.reverseStack.length; i++)
-                str += this.reverseStack[i] + " ";
-            return str;
+        public reverse(str) {
+            let n = this.myArray.length, i;
+           for(i=0; i<n; i++){
+               this.push(this.myArray[i]);
+           }
+           for(i=0; i<n; i++){
+               this.pop();
+           }
+            // this.len = string.length;
+            // for(let i = 0; i < this.len; i++)
+            //     this.push(string)
+            // for(let i = 0; i<this.len; i++)
+            //     this.pop();
         }
 }

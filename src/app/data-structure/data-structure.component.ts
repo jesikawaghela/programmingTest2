@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Stack } from './stack';
+import { myStack } from './stack';
 import { ListQueue } from './queue';
 import { ReverseString } from './reverse-string'
+import { PostFix } from './postfix';
+import { LinkedList } from './linked-list';
+import { Prefix } from './prefix';
+import { InfixPostfix } from './infix-to-postfix';
 
 @Component({
   selector: 'app-data-structure',
@@ -10,9 +14,14 @@ import { ReverseString } from './reverse-string'
 })
 export class DataStructureComponent implements OnInit {
 
-  stack = new Stack;
+  stack = new myStack;
   Queue = new ListQueue();
   ReverseString = new ReverseString;
+  infixToPostfix = new PostFix();
+  linkedList = new LinkedList;
+  infixPostfix = new InfixPostfix;
+  prefix = new Prefix;
+  exp: any;
 
 
   constructor() { 
@@ -27,9 +36,15 @@ export class DataStructureComponent implements OnInit {
     this.stack.pop();
     console.log(this.stack.printStack());
 
+    console.log("-------------------------------------------------");
+    
+
     //reverse string
-    this.ReverseString.reverse('programming');
-    console.log(this.ReverseString.printStack());
+    console.log("reverse string");
+    var result = this.ReverseString.reverse('programming');
+    console.log(result);
+
+    console.log("-------------------------------------------------");
 
     //queue output
     console.log("Queue Output");
@@ -41,8 +56,36 @@ export class DataStructureComponent implements OnInit {
     this.Queue.enqueue(600);
     this.Queue.dequeue();
     console.log(this.Queue); 
-  }
 
+    console.log("-------------------------------------------------");
+
+    //infix to postfix
+    console.log("infix to postfix");
+    this.exp = "a+b";
+    console.log(this.infixToPostfix.infixToPostfix(this.exp)); 
+
+    console.log("-------------------------------------------------");
+
+    //Infix To prefix
+    console.log("Infix To Prefix");
+    let exp1 = "a+b*(c*d)-i";
+    console.log(this.prefix.infixExp(exp1));
+    
+
+    //infix to postfix
+    console.log("Infix To Postfix"); 
+    let exp = "a+b*(c*d)-i";
+    console.log(this.infixPostfix.infixExp(exp));
+    
+
+    //linked list output
+    console.log("Linked List");
+    this.linkedList.insertAtStart(10);
+    console.log(this.linkedList); 
+    this.linkedList.insertAtEnd(20);
+    console.log(this.linkedList);
+
+  }
   ngOnInit() {
   }
 

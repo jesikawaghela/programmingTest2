@@ -1,4 +1,4 @@
-export class Stack {
+export class myStack<data> {
 
     private myArray = [];
     private top = -1
@@ -15,10 +15,10 @@ export class Stack {
             this.top--;
             return data
     }
-    private isEmpty() {
+    public isEmpty() {
         return this.top == -1
     }
-    private peek() {
+    public peek() {
         return this.myArray[this.top];
     }
     public printStack() {
